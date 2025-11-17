@@ -893,14 +893,15 @@ def build_input_dict(primary_file, modality, img_dir, calib_dir, gt_label_dir):
     return input_dict
 
 # --- Defaults ---
-DEFAULT_MODEL = '/Developer/mmdetection3d/configs/pointpillars/pointpillars_hv_secfpn_8xb6-160e_kitti-3d-car.py'
+MMDET3D = '/home/rsf/Documents/MSAI/CMPE-249/mmdetection3d/'
+DEFAULT_MODEL = MMDET3D + 'configs/pointpillars/pointpillars_hv_secfpn_8xb6-160e_kitti-3d-car.py'
 #DEFAULT_CHECKPOINT = 'https://download.openmmlab.com/mmdetection3d/v1.0.0_models/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-car/hv_pointpillars_secfpn_6x8_160e_ktti-3d-car_20220331_134606-d42d15ed.pth'
-DEFAULT_CHECKPOINT = '/Developer/mmdetection3d/modelzoos/hv_pointpillars_secfpn_6x8_160e_kitti-3d-car_20220331_134606-d42d15ed.pth'
+DEFAULT_CHECKPOINT = MMDET3D + 'chkpts/hv_pointpillars_secfpn_6x8_160e_kitti-3d-car_20220331_134606-d42d15ed.pth'
 #DEFAULT_INPUT = '/Developer/mmdetection3d/demo/data/kitti/000008.bin'
-DEFAULT_INPUT = '/data/Datasets/kitti/training/velodyne/000008.bin'
-DEFAULT_LABEL = '/data/Datasets/kitti/training/label_2/000008.txt'
-DEFAULT_CALIB = '/data/Datasets/kitti/training/calib/000008.txt'
-DEFAULT_IMG = '/data/Datasets/kitti/training/image_2/000008.png'
+DEFAULT_INPUT = MMDET3D + 'data/kitti/training/velodyne/000008.bin'
+DEFAULT_LABEL = MMDET3D + 'data/kitti/training/label_2/000008.txt'
+DEFAULT_CALIB = MMDET3D + 'data/kitti/training/calib/000008.txt'
+DEFAULT_IMG = MMDET3D + 'data/kitti/training/image_2/000008.png'
 # --- End Defaults ---
 
 def main(args):
@@ -1098,7 +1099,7 @@ if __name__ == "__main__":
     
     # Dataset-specific arguments
     parser.add_argument('--input-path', type=str, 
-                        default="/data/Datasets/kitti/training/",
+                        default=MMDET3D + "data/kitti/training/",
                         help="Path to input. For 'any': LiDAR file/folder or image file/folder. For 'kitti'/'waymokitti': dataset base folder.")
     parser.add_argument('--frame-number', type=str, default='000008',
                         help="Frame number for KITTI/WaymoKITTI datasets (e.g., '000008'). Use -1 for all frames in dataset.")
